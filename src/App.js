@@ -17,10 +17,6 @@ class App extends Component {
   }
 
   setData = (data = {}) => {
-    // data.hasOwnProperty("isRunning") &&
-    //   (data.isRunning = data.isRunning ? "true" : "false");
-    // data.hasOwnProperty("isAlumni") &&
-    //   (data.isRunning = data.isAlumni ? "true" : "false");
     this.setState({
       data: {
         ...this.state.data,
@@ -82,14 +78,14 @@ class App extends Component {
     const isRegistered = this.state.confirmData.length > 0;
     return (
       <BrowserRouter>
-        <MainLayout
+        {/* <MainLayout
           showSider={true}
           confirmData={this.state.confirmData}
           delData={idx => {
             this.delData(idx);
           }}
-          set={data => this.setData(data)}
-        >
+          // set={data => this.setData(data)}
+        > */}
           <Routes
             set={data => this.setData(data)}
             add={newData => this.addData(newData)}
@@ -101,8 +97,13 @@ class App extends Component {
             setOrderData = {data => this.setOrderData(data)}
             payment={this.state.payment}
             orderStatus={this.state.orderStatus}
+            showSider={false}
+            confirmData={this.state.confirmData}
+            delData={idx => {
+              this.delData(idx);
+            }}
           />
-        </MainLayout>
+        {/* </MainLayout> */}
       </BrowserRouter>
     );
   }
